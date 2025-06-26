@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --background: hsl(220, 50%, 8%);
+  --foreground: hsl(210, 100%, 98%);
+  --muted: hsl(220, 20%, 25%);
+  --muted-foreground: hsl(220, 10%, 65%);
+  --popover: hsl(220, 40%, 12%);
+  --popover-foreground: hsl(210, 100%, 98%);
+  --card: hsl(225, 35%, 15%);
+  --card-foreground: hsl(210, 100%, 98%);
+  --border: hsl(250, 30%, 25%);
+  --input: hsl(250, 30%, 25%);
+  --primary: hsl(195, 100%, 45%);
+  --primary-foreground: hsl(220, 50%, 8%);
+  --secondary: hsl(250, 35%, 20%);
+  --secondary-foreground: hsl(210, 100%, 98%);
+  --accent: hsl(250, 50%, 25%);
+  --accent-foreground: hsl(210, 100%, 98%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(210, 100%, 98%);
+  --ring: hsl(195, 100%, 45%);
+  --radius: 1rem;
+  
+  /* Space theme colors */
+  --space-navy: hsl(220, 50%, 8%);
+  --cosmic-purple: hsl(250, 45%, 25%);
+  --stellar-blue: hsl(220, 70%, 50%);
+  --nebula-violet: hsl(260, 70%, 60%);
+  --bright-cyan: hsl(195, 100%, 45%);
+  --star-white: hsl(210, 100%, 98%);
+  --space-gray: hsl(220, 20%, 35%);
+  --asteroid: hsl(220, 10%, 55%);
+}
+
+.dark {
+  --background: hsl(220, 50%, 8%);
+  --foreground: hsl(210, 100%, 98%);
+  --muted: hsl(220, 20%, 25%);
+  --muted-foreground: hsl(220, 10%, 65%);
+  --popover: hsl(220, 40%, 12%);
+  --popover-foreground: hsl(210, 100%, 98%);
+  --card: hsl(225, 35%, 15%);
+  --card-foreground: hsl(210, 100%, 98%);
+  --border: hsl(250, 30%, 25%);
+  --input: hsl(250, 30%, 25%);
+  --primary: hsl(195, 100%, 45%);
+  --primary-foreground: hsl(220, 50%, 8%);
+  --secondary: hsl(250, 35%, 20%);
+  --secondary-foreground: hsl(210, 100%, 98%);
+  --accent: hsl(250, 50%, 25%);
+  --accent-foreground: hsl(210, 100%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(210, 100%, 98%);
+  --ring: hsl(195, 100%, 45%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(45deg, hsl(195, 100%, 45%), hsl(260, 70%, 60%), hsl(210, 100%, 98%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cosmic-border {
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, hsl(195, 100%, 45%), hsl(260, 70%, 60%)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .typing-effect {
+    border-right: 2px solid hsl(195, 100%, 45%);
+    animation: typewriter 4s steps(40) 1s forwards, blink 1s infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    transition: all 0.3s ease;
+  }
+
+  .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: linear-gradient(45deg, hsl(195, 100%, 45%), hsl(260, 70%, 60%));
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .skill-bar {
+    transition: width 2s ease-in-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes typewriter {
+  0% { 
+    width: 0ch;
+  }
+  100% { 
+    width: 40ch;
+  }
+}
+
+@keyframes blink {
+  0%, 50% { 
+    border-color: hsl(195, 100%, 45%);
+  }
+  51%, 100% { 
+    border-color: transparent;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0;
+  }
+  50% { 
+    opacity: 1;
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: hsl(195, 100%, 45%);
+  border-radius: 50%;
+  animation: particle-float 15s infinite linear;
+}
