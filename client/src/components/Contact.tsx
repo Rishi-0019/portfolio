@@ -156,10 +156,10 @@ export default function Contact() {
               <Button 
                 className="bg-gradient-to-r from-[hsl(195,100%,45%)] to-[hsl(260,70%,60%)] hover:scale-105 transition-transform"
                 onClick={() => {
-                  // In a real implementation, this would download the actual resume
+                  window.open('/api/resume', '_blank');
                   toast({
                     title: "Resume Download",
-                    description: "Your resume download will be available soon!",
+                    description: "Resume download started successfully!",
                   });
                 }}
               >
