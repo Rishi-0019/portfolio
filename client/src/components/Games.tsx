@@ -2,7 +2,16 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Gamepad, Trophy, Play, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// Placeholder game component
+import SpaceInvaders from "./games/SpaceInvaders";
+import AsteroidBreaker from "./games/AsteroidBreaker";
+import SatelliteRescue from "./games/SatelliteRescue";
+
+// TypeScript interface for game components
+interface GameComponentProps {
+  onGameComplete: (score: number) => void;
+}
+
+// Placeholder fallback component
 function GamePlaceholder({ onGameComplete, gameTitle }: { onGameComplete: (score: number) => void; gameTitle: string }) {
   const [score, setScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
@@ -56,14 +65,28 @@ function GamePlaceholder({ onGameComplete, gameTitle }: { onGameComplete: (score
   );
 }
 
-const games = [
+// TypeScript games configuration with proper typing
+interface GameConfig {
+  id: string;
+  title: string;
+  description: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard';
+  color: string;
+  component: React.ComponentType<GameComponentProps>;
+  controls: string[];
+  tech: string[];
+}
+
+const games: GameConfig[] = [
   {
     id: 'space-invaders',
     title: 'Space Invaders',
     description: 'Classic arcade game with a modern twist. Defend Earth from alien invasion!',
     difficulty: 'Medium',
     color: 'hsl(195,100%,45%)',
-    component: GamePlaceholder
+    component: SpaceInvaders,
+    controls: ['Arrow Keys / WASD', 'Space to Shoot'],
+    tech: ['TypeScript', 'Canvas API', 'Game Physics', 'Collision Detection']
   },
   {
     id: 'asteroid-breaker',
@@ -71,7 +94,9 @@ const games = [
     description: 'Navigate through an asteroid field and collect space gems.',
     difficulty: 'Easy',
     color: 'hsl(260,70%,60%)',
-    component: GamePlaceholder
+    component: AsteroidBreaker,
+    controls: ['Arrow Keys / WASD', 'Avoid Asteroids', 'Collect Gems'],
+    tech: ['TypeScript', 'Canvas API', 'Level Progression', 'Particle Effects']
   },
   {
     id: 'satellite-rescue',
@@ -79,7 +104,9 @@ const games = [
     description: 'Guide satellites back to Earth orbit while avoiding space debris.',
     difficulty: 'Hard',
     color: 'hsl(220,70%,50%)',
-    component: GamePlaceholder
+    component: SatelliteRescue,
+    controls: ['Mouse Movement', 'Click & Drag', 'Physics Simulation'],
+    tech: ['TypeScript', 'Canvas API', 'Physics Engine', 'Advanced Algorithms']
   }
 ];
 
@@ -87,7 +114,7 @@ export default function Games() {
   const [activeGame, setActiveGame] = useState<string | null>(null);
   const [scores, setScores] = useState<Record<string, number>>({});
 
-  const handleGameComplete = (gameId: string, score: number) => {
+  const handleGameComplete = (gameId: string, score: number): void => {
     setScores(prev => ({
       ...prev,
       [gameId]: Math.max(prev[gameId] || 0, score)
@@ -95,7 +122,8 @@ export default function Games() {
     setActiveGame(null);
   };
 
-  const ActiveGameComponent = activeGame ? games.find(g => g.id === activeGame)?.component : null;
+  const activeGameConfig = activeGame ? games.find(g => g.id === activeGame) : null;
+  const ActiveGameComponent = activeGameConfig?.component;
 
   return (
     <section id="games" className="py-20">
@@ -134,10 +162,11 @@ export default function Games() {
                   Back to Games
                 </Button>
               </div>
-              <ActiveGameComponent 
-                onGameComplete={(score: number) => handleGameComplete(activeGame, score)} 
-                gameTitle={games.find(g => g.id === activeGame)?.title || "Game"}
-              />
+              {ActiveGameComponent && (
+                <ActiveGameComponent 
+                  onGameComplete={(score: number) => handleGameComplete(activeGame!, score)} 
+                />
+              )}
             </div>
           </motion.div>
         ) : (
@@ -164,9 +193,37 @@ export default function Games() {
                   </span>
                 </div>
 
-                <p className="text-[hsl(220,10%,55%)] text-center mb-6 leading-relaxed">
+                <p className="text-[hsl(220,10%,55%)] text-center mb-4 leading-relaxed">
                   {game.description}
                 </p>
+
+                {/* Controls Information */}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-[hsl(210,100%,98%)] mb-2">Controls:</h4>
+                  <div className="space-y-1">
+                    {game.controls.map((control, idx) => (
+                      <div key={idx} className="text-xs text-[hsl(220,10%,55%)] flex items-center">
+                        <div className="w-1 h-1 bg-[hsl(195,100%,45%)] rounded-full mr-2"></div>
+                        {control}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Tech Stack */}
+                <div className="mb-4">
+                  <h4 className="text-sm font-semibold text-[hsl(210,100%,98%)] mb-2">TypeScript Tech:</h4>
+                  <div className="flex flex-wrap gap-1">
+                    {game.tech.map((tech, idx) => (
+                      <span 
+                        key={idx} 
+                        className="text-xs bg-[hsl(195,100%,45%)]/10 px-2 py-1 rounded border border-[hsl(195,100%,45%)]/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
                 {scores[game.id] && (
                   <div className="flex items-center justify-center gap-2 mb-4 text-[hsl(195,100%,45%)]">
@@ -198,14 +255,17 @@ export default function Games() {
           viewport={{ once: true }}
         >
           <div className="bg-[hsl(220,20%,35%)]/20 backdrop-blur-sm rounded-3xl p-8 border border-[hsl(220,10%,55%)]/30 max-w-4xl mx-auto">
-            <h4 className="text-xl font-semibold text-[hsl(195,100%,45%)] mb-4">Game Development Tech Stack</h4>
+            <h4 className="text-xl font-semibold text-[hsl(195,100%,45%)] mb-4">TypeScript Game Development</h4>
             <p className="text-[hsl(220,10%,55%)] mb-6">
-              These games are built using modern web technologies including React, TypeScript, Canvas API, 
-              and custom game physics engines. They demonstrate my skills in game development, 
-              real-time rendering, collision detection, and user interaction handling.
+              These games are fully implemented in <strong className="text-[hsl(210,100%,98%)]">TypeScript</strong> with 
+              proper interfaces, type safety, and modern React patterns. Each game demonstrates advanced programming 
+              concepts including collision detection, physics simulation, state management, and real-time rendering.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {['React Hooks', 'TypeScript', 'Canvas API', 'Game Physics', 'Animation', 'Event Handling'].map((tech, index) => (
+              {[
+                'TypeScript Interfaces', 'React Hooks', 'Canvas API', 'Game Physics', 
+                'Collision Detection', 'State Management', 'Event Handling', 'Type Safety'
+              ].map((tech, index) => (
                 <span 
                   key={index}
                   className="bg-[hsl(195,100%,45%)]/20 px-4 py-2 rounded-full text-sm border border-[hsl(195,100%,45%)]/30"
