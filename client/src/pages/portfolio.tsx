@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import Games from "@/components/Games";
 import Education from "@/components/Education";
 import Certificates from "@/components/Certificates";
 import Contact from "@/components/Contact";
@@ -19,6 +20,7 @@ export default function Portfolio() {
       <About />
       <Skills />
       <Projects />
+      <Games />
       <Education />
       <Certificates />
       <Contact />
