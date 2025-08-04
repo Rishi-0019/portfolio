@@ -21,7 +21,7 @@ export default function Contact() {
     },
     {
       icon: <Instagram className="w-6 h-6" />,
-      href: "https://instagram.com/your_instagram_username",
+      href: "https://instagram.com/rishabh_0019",
       label: "Instagram",
       color: "#E4405F"
     },
