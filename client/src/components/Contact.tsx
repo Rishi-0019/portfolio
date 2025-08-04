@@ -36,7 +36,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center bg-[hsl(245,50%,16%)]/90 py-24"
+      className="min-h-screen flex items-center justify-center bg-[hsl(245,50%,16%)] py-24"
     >
       <div className="w-full max-w-2xl mx-auto px-4">
         <motion.div
@@ -55,7 +55,7 @@ export default function Contact() {
           </p>
         </motion.div>
         <motion.div
-          className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl px-8 py-10 flex flex-col items-center gap-10 border border-white/15"
+          className="bg-white/25 backdrop-blur-md rounded-3xl shadow-2xl px-8 py-10 flex flex-col items-center gap-10 border border-white/20"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
@@ -108,9 +108,9 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   title={social.label}
                   style={{
-                    background: `${social.color}22`,
+                    background: `${social.color}15`,
                     color: social.color,
-                    borderColor: `${social.color}33`
+                    borderColor: `${social.color}44`
                   }}
                   className="w-14 h-14 flex items-center justify-center rounded-full border-2 shadow-lg hover:bg-white hover:text-[hsl(245,50%,16%)] hover:scale-110 transition-all duration-150 text-2xl"
                 >
