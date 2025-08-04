@@ -55,7 +55,7 @@ export default function Contact() {
           </p>
         </motion.div>
         <motion.div
-          className="bg-white/25 backdrop-blur-md rounded-3xl shadow-2xl px-8 py-10 flex flex-col items-center gap-10 border border-white/20"
+          className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl px-8 py-10 flex flex-col items-center gap-10 border border-white/20"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
@@ -108,7 +108,7 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   title={social.label}
                   style={{
-                    background: `${social.color}15`,
+                    background: `${social.color}22`,
                     color: social.color,
                     borderColor: `${social.color}44`
                   }}
