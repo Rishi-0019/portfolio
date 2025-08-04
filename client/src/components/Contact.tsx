@@ -108,11 +108,11 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   title={social.label}
                   style={{
-                    background: `${social.color}22`,
-                    color: social.color,
-                    borderColor: `${social.color}44`
+                    background: social.color,
+                    color: "#fff",
+                    boxShadow: `0 4px 18px 0 ${social.color}55`
                   }}
-                  className="w-14 h-14 flex items-center justify-center rounded-full border-2 shadow-lg hover:bg-white hover:text-[hsl(245,50%,16%)] hover:scale-110 transition-all duration-150 text-2xl"
+                  className="w-14 h-14 flex items-center justify-center rounded-full border-0 shadow-lg transition-all duration-150 text-2xl hover:scale-110 hover:ring-4 hover:ring-white/30"
                 >
                   {social.icon}
                 </a>
