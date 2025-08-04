@@ -113,11 +113,11 @@ export default function Certificates() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-10">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.id}
-              className="bg-[hsl(250,45%,25%)]/20 backdrop-blur-sm rounded-3xl p-8 border border-[hsl(260,70%,60%)]/30 hover:border-[hsl(195,100%,45%)]/50 transition-all group"
+              className={`relative bg-[hsl(250,45%,25%)]/30 backdrop-blur-md shadow-xl rounded-3xl p-9 border border-[hsl(260,70%,60%)]/30 hover:border-[hsl(195,100%,45%)]/70 transition-all group hover:shadow-2xl hover:scale-[1.025] duration-300`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -125,17 +125,20 @@ export default function Certificates() {
               whileHover={{ y: -10 }}
             >
               <div className="text-center mb-6">
-                <div className={`w-16 h-16 bg-gradient-to-br from-[${cert.color}] to-[hsl(220,70%,50%)] rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                  <div className="text-[hsl(220,50%,8%)]">
-                    {cert.icon}
-                  </div>
+                <div
+                  className={`w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-2xl ring-2 ring-[${cert.color}] bg-gradient-to-br from-[${cert.color}]/80 to-[hsl(220,70%,60%)]/30 shadow-lg`}
+                  style={{
+                    boxShadow: `0 4px 28px 0 ${cert.color}55`
+                  }}
+                >
+                  <div className="text-[hsl(220,50%,8%)]">{cert.icon}</div>
                 </div>
                 <h3 className={`text-xl font-bold text-[${cert.color}] group-hover:text-[hsl(210,100%,98%)] transition-colors`}>
                   {cert.title}
                 </h3>
                 <p className="text-[hsl(220,10%,55%)] mt-2">{cert.organization}</p>
               </div>
-              
+
               <div className="space-y-3 mb-6">
                 {cert.achievements.map((achievement, achievementIndex) => (
                   <div key={achievementIndex} className="flex items-center gap-3">
@@ -148,9 +151,9 @@ export default function Certificates() {
               </div>
 
               <div className="text-center">
-                <a 
+                <a
                   href={cert.link}
-                  className={`inline-flex items-center gap-2 text-[${cert.color}] hover:text-[hsl(210,100%,98%)] transition-colors`}
+                  className={`inline-flex items-center gap-2 text-[${cert.color}] hover:text-[hsl(210,100%,98%)] focus:outline-none transition-colors`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
