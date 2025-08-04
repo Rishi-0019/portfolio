@@ -106,19 +106,19 @@ export default function Certificates() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl font-bold gradient-text mb-4">Certificates & Achievements</h2>
+          <h2 className="text-5xl font-bold gradient-text mb-4">
+            Certificates & Achievements
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[hsl(195,100%,45%)] to-[hsl(260,70%,60%)] mx-auto"></div>
           <p className="text-xl text-[hsl(220,10%,55%)] mt-6">
             Professional certifications and recognitions
           </p>
         </motion.div>
-
         <div className="grid lg:grid-cols-3 gap-10">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.id}
-              className={`relative bg-[hsl(250,45%,25%)]/30 backdrop-blur-md shadow-xl rounded-3xl p-9 border border-[hsl(260,70%,60%)]/30 
-                hover:border-[hsl(195,100%,45%)]/70 transition-all group hover:shadow-2xl hover:scale-[1.025] duration-300`}
+              className="relative bg-[hsl(250,45%,25%)]/25 backdrop-blur-lg shadow-xl rounded-3xl p-9 border border-[hsl(260,70%,60%)]/25 hover:border-[hsl(195,100%,45%)]/80 transition-all group hover:shadow-2xl hover:scale-[1.03] duration-300"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -126,41 +126,41 @@ export default function Certificates() {
               whileHover={{ y: -10 }}
             >
               <div className="text-center mb-6">
+                {/* Icon in a colored rounded bubble */}
                 <div
-                  className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-2xl shadow-lg"
+                  className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-xl"
                   style={{
-                    background: `linear-gradient(135deg, ${cert.color} 70%, hsl(220,70%,60%) 100%)`,
-                    boxShadow: `0 4px 28px 0 ${cert.color}44`
+                    background: cert.color,
+                    boxShadow: `0 4px 14px 0 ${cert.color}70`,
                   }}
                 >
-                  <div style={{ color: "hsl(220,50%,8%)" }}>
-                    {cert.icon}
-                  </div>
+                  <div style={{ color: "#fff" }}>{cert.icon}</div>
                 </div>
+                {/* Headline with matching color and subtle shadow */}
                 <h3
-                  className="text-xl font-bold group-hover:text-[hsl(210,100%,98%)] transition-colors"
-                  style={{ color: cert.color }}
+                  className="text-xl font-extrabold mb-1 transition-colors"
+                  style={{
+                    color: cert.color,
+                    textShadow: `0 2px 12px ${cert.color}44`,
+                  }}
                 >
                   {cert.title}
                 </h3>
-                <p className="text-[hsl(220,10%,55%)] mt-2">{cert.organization}</p>
+                <p className="text-[hsl(220,10%,55%)]">{cert.organization}</p>
               </div>
-
               <div className="space-y-3 mb-6">
-                {cert.achievements.map((achievement, achievementIndex) => (
-                  <div key={achievementIndex} className="flex items-center gap-3">
-                    <div style={{ color: cert.color }}>
-                      {achievement.icon}
-                    </div>
+                {cert.achievements.map((achievement, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    {/* Small achievement icon in correct color */}
+                    <div style={{ color: cert.color }}>{achievement.icon}</div>
                     <span className="text-[hsl(210,100%,98%)] text-sm">{achievement.text}</span>
                   </div>
                 ))}
               </div>
-
               <div className="text-center">
                 <a
                   href={cert.link}
-                  className="inline-flex items-center gap-2 transition-colors"
+                  className="inline-flex items-center gap-2 font-medium transition-colors"
                   style={{ color: cert.color }}
                   target="_blank"
                   rel="noopener noreferrer"
