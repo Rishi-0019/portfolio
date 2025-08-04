@@ -2,22 +2,23 @@ import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { Code, Server, Settings } from "lucide-react";
 
+// Updated skill levels according to your request
 const skillsData = {
   frontend: [
     { skill: "HTML5 & CSS3", level: 95 },
-    { skill: "JavaScript & TypeScript", level: 90 },
+    { skill: "JavaScript & TypeScript", level: 80 }, // changed to 80%
     { skill: "React & Tailwind CSS", level: 85 },
     { skill: "Bootstrap & SASS", level: 80 },
   ],
   backend: [
-    { skill: "Python & JAVA", level: 88 },
-    { skill: "RESTful APIs", level: 82 },
-    { skill: "Firebase & PostgreSQL", level: 85 },
+    { skill: "Python & JAVA", level: 90 },
+    { skill: "RESTful APIs", level: 80 },
+    { skill: "Firebase & PostgreSQL", level: 70 }, // changed to 70%
     { skill: "MySQL & MongoDB", level: 80 },
   ],
   tools: [
     { skill: "Git & GitHub", level: 90 },
-    { skill: "TensorFlow & Pandas", level: 75 },
+    { skill: "TensorFlow & Pandas", level: 50 }, // changed to 50%
     { skill: "VS Code & IntelliJ", level: 85 },
     { skill: "Three.js & WebGL", level: 80 },
   ],
@@ -34,6 +35,7 @@ const technologies = [
   { name: "Git", icon: "fab fa-git-alt" },
 ];
 
+// SkillBar Component
 function SkillBar({ skill, level, color }: { skill: string; level: number; color: string }) {
   const barRef = useRef<HTMLDivElement>(null);
 
@@ -66,12 +68,18 @@ function SkillBar({ skill, level, color }: { skill: string; level: number; color
         <span className="text-[hsl(210,100%,98%)]">{skill}</span>
         <span className={`text-[${color}]`}>{level}%</span>
       </div>
-      <div className="bg-[hsl(220,50%,8%)] rounded-full h-3">
+      <div className="bg-[hsl(220,50%,8%)] rounded-full h-3 relative overflow-hidden">
         <div
           ref={barRef}
-          className={`skill-bar bg-gradient-to-r ${color === 'hsl(195,100%,45%)' ? 'from-[hsl(195,100%,45%)] to-[hsl(260,70%,60%)]' : 
-            color === 'hsl(260,70%,60%)' ? 'from-[hsl(260,70%,60%)] to-[hsl(220,70%,50%)]' : 
-            'from-[hsl(220,70%,50%)] to-[hsl(195,100%,45%)]'} h-3 rounded-full`}
+          className={`
+            skill-bar 
+            bg-gradient-to-r 
+            transition-all duration-[1200ms] ease-in-out 
+            ${color === 'hsl(195,100%,45%)' ? 'from-[hsl(195,100%,45%)] to-[hsl(260,70%,60%)]' : 
+              color === 'hsl(260,70%,60%)' ? 'from-[hsl(260,70%,60%)] to-[hsl(220,70%,50%)]' : 
+              'from-[hsl(220,70%,50%)] to-[hsl(195,100%,45%)]'}
+            h-3 rounded-full
+          `}
           style={{ width: '0%' }}
         />
       </div>
