@@ -13,7 +13,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Object-oriented programming mastery" },
       { icon: <Star className="w-4 h-4" />, text: "Core Java concepts expertise" },
     ],
-    link: "#"
+    link: "https://example.com/cert1"
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Advanced problem-solving skills" },
       { icon: <Medal className="w-4 h-4" />, text: "Competitive programming foundation" },
     ],
-    link: "#"
+    link: "https://example.com/cert2"
   },
   {
     id: 3,
@@ -39,7 +39,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "HTML, CSS, JavaScript mastery" },
       { icon: <Globe className="w-4 h-4" />, text: "Responsive design fundamentals" },
     ],
-    link: "#"
+    link: "https://example.com/cert3"
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Generative AI concepts" },
       { icon: <Globe className="w-4 h-4" />, text: "Hands-on AI project experience" },
     ],
-    link: "#"
+    link: "https://example.com/cert4"
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const certificates = [
       { icon: <Star className="w-4 h-4" />, text: "Data visualization techniques" },
       { icon: <Globe className="w-4 h-4" />, text: "Data-driven decision making" },
     ],
-    link: "#"
+    link: "https://example.com/cert5"
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Innovative project development" },
       { icon: <Medal className="w-4 h-4" />, text: "Collaborative problem solving" },
     ],
-    link: "#"
+    link: "https://example.com/cert6"
   },
   {
     id: 7,
@@ -91,9 +91,10 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Collaborative coding and innovation" },
       { icon: <Medal className="w-4 h-4" />, text: "Real-world solution building" },
     ],
-    link: "#"
+    link: "https://example.com/cert7"
   }
 ];
+
 
 const spaceCardStyle = {
   background: 'radial-gradient(circle at center, rgba(25,40,65,0.85), rgba(10,15,25,0.95))',
@@ -103,6 +104,7 @@ const spaceCardStyle = {
   borderRadius: '1rem',
   padding: '2.25rem'
 };
+
 
 const iconAccentStyle = {
   boxShadow: '0 0 14px 3px rgba(30,215,255,0.7)',
@@ -115,6 +117,7 @@ const iconAccentStyle = {
   justifyContent: 'center',
   margin: '0 auto 1rem'
 };
+
 
 export default function Certificates() {
   return (
