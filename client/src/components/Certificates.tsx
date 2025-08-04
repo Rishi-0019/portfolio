@@ -99,7 +99,7 @@ export default function Certificates() {
   return (
     <section id="certificates" className="py-20">
       <div className="container mx-auto px-6">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,8 @@ export default function Certificates() {
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.id}
-              className={`relative bg-[hsl(250,45%,25%)]/30 backdrop-blur-md shadow-xl rounded-3xl p-9 border border-[hsl(260,70%,60%)]/30 hover:border-[hsl(195,100%,45%)]/70 transition-all group hover:shadow-2xl hover:scale-[1.025] duration-300`}
+              className={`relative bg-[hsl(250,45%,25%)]/30 backdrop-blur-md shadow-xl rounded-3xl p-9 border border-[hsl(260,70%,60%)]/30 
+                hover:border-[hsl(195,100%,45%)]/70 transition-all group hover:shadow-2xl hover:scale-[1.025] duration-300`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -126,14 +127,20 @@ export default function Certificates() {
             >
               <div className="text-center mb-6">
                 <div
-                  className={`w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-2xl ring-2 ring-[${cert.color}] bg-gradient-to-br from-[${cert.color}]/80 to-[hsl(220,70%,60%)]/30 shadow-lg`}
+                  className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-2xl shadow-lg"
                   style={{
-                    boxShadow: `0 4px 28px 0 ${cert.color}55`
+                    background: `linear-gradient(135deg, ${cert.color} 70%, hsl(220,70%,60%) 100%)`,
+                    boxShadow: `0 4px 28px 0 ${cert.color}44`
                   }}
                 >
-                  <div className="text-[hsl(220,50%,8%)]">{cert.icon}</div>
+                  <div style={{ color: "hsl(220,50%,8%)" }}>
+                    {cert.icon}
+                  </div>
                 </div>
-                <h3 className={`text-xl font-bold text-[${cert.color}] group-hover:text-[hsl(210,100%,98%)] transition-colors`}>
+                <h3
+                  className="text-xl font-bold group-hover:text-[hsl(210,100%,98%)] transition-colors"
+                  style={{ color: cert.color }}
+                >
                   {cert.title}
                 </h3>
                 <p className="text-[hsl(220,10%,55%)] mt-2">{cert.organization}</p>
@@ -142,7 +149,7 @@ export default function Certificates() {
               <div className="space-y-3 mb-6">
                 {cert.achievements.map((achievement, achievementIndex) => (
                   <div key={achievementIndex} className="flex items-center gap-3">
-                    <div className={`text-[${cert.color}]`}>
+                    <div style={{ color: cert.color }}>
                       {achievement.icon}
                     </div>
                     <span className="text-[hsl(210,100%,98%)] text-sm">{achievement.text}</span>
@@ -153,7 +160,8 @@ export default function Certificates() {
               <div className="text-center">
                 <a
                   href={cert.link}
-                  className={`inline-flex items-center gap-2 text-[${cert.color}] hover:text-[hsl(210,100%,98%)] focus:outline-none transition-colors`}
+                  className="inline-flex items-center gap-2 transition-colors"
+                  style={{ color: cert.color }}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
