@@ -40,6 +40,58 @@ const certificates = [
       { icon: <Globe className="w-4 h-4" />, text: "Responsive design fundamentals" },
     ],
     link: "#"
+  },
+  {
+    id: 4,
+    title: "Web Development | Generative AI",
+    organization: "Coding Ninjas",
+    icon: <Globe className="w-6 h-6" />,
+    color: "hsl(150,70%,40%)",
+    achievements: [
+      { icon: <Star className="w-4 h-4" />, text: "Integration of AI in web apps" },
+      { icon: <Code className="w-4 h-4" />, text: "Generative AI concepts" },
+      { icon: <Globe className="w-4 h-4" />, text: "Hands-on AI project experience" },
+    ],
+    link: "#"
+  },
+  {
+    id: 5,
+    title: "Mastering Google Spreadsheets for Data Analytics",
+    organization: "Coding Ninjas",
+    icon: <Code className="w-6 h-6" />,
+    color: "hsl(45,90%,50%)",
+    achievements: [
+      { icon: <Medal className="w-4 h-4" />, text: "Advanced spreadsheet functions" },
+      { icon: <Star className="w-4 h-4" />, text: "Data visualization techniques" },
+      { icon: <Globe className="w-4 h-4" />, text: "Data-driven decision making" },
+    ],
+    link: "#"
+  },
+  {
+    id: 6,
+    title: "Hackhaven 2.0",
+    organization: "GDB ABESEC",
+    icon: <Trophy className="w-6 h-6" />,
+    color: "hsl(10,80%,50%)",
+    achievements: [
+      { icon: <Trophy className="w-4 h-4" />, text: "Hackathon participation" },
+      { icon: <Code className="w-4 h-4" />, text: "Innovative project development" },
+      { icon: <Medal className="w-4 h-4" />, text: "Collaborative problem solving" },
+    ],
+    link: "#"
+  },
+  {
+    id: 7,
+    title: "Coding Ninjas 10x HackerCup Hackathon",
+    organization: "Coding Ninjas x WNCC IIT-Bombay",
+    icon: <Trophy className="w-6 h-6" />,
+    color: "hsl(300,80%,55%)",
+    achievements: [
+      { icon: <Trophy className="w-4 h-4" />, text: "Hackathon winner & finalist" },
+      { icon: <Code className="w-4 h-4" />, text: "Collaborative coding and innovation" },
+      { icon: <Medal className="w-4 h-4" />, text: "Real-world solution building" },
+    ],
+    link: "#"
   }
 ];
 
@@ -56,7 +108,9 @@ export default function Certificates() {
         >
           <h2 className="text-5xl font-bold gradient-text mb-4">Certificates & Achievements</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[hsl(195,100%,45%)] to-[hsl(260,70%,60%)] mx-auto"></div>
-          <p className="text-xl text-[hsl(220,10%,55%)] mt-6">Professional certifications and recognitions</p>
+          <p className="text-xl text-[hsl(220,10%,55%)] mt-6">
+            Professional certifications and recognitions
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -97,6 +151,8 @@ export default function Certificates() {
                 <a 
                   href={cert.link}
                   className={`inline-flex items-center gap-2 text-[${cert.color}] hover:text-[hsl(210,100%,98%)] transition-colors`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <span>View Certificate</span>
                   <ExternalLink className="w-4 h-4" />
