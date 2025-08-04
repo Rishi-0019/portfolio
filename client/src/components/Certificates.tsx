@@ -26,7 +26,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Advanced problem-solving skills" },
       { icon: <Medal className="w-4 h-4" />, text: "Competitive programming foundation" },
     ],
-    link: "https://example.com/cert2"
+    link: "https://certificate.codingninjas.com/view/a80f1fe4055a5f91"
   },
   {
     id: 3,
