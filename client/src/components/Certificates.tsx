@@ -52,7 +52,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Generative AI concepts" },
       { icon: <Globe className="w-4 h-4" />, text: "Hands-on AI project experience" },
     ],
-    link: "https://certificate.codingninjas.com/view/71aae39329372009"
+    link: "https://certificate.codingninjas.com/view/71aae3932937200nk"
   },
   {
     id: 5,
