@@ -95,6 +95,27 @@ const certificates = [
   }
 ];
 
+const spaceCardStyle = {
+  background: 'radial-gradient(circle at center, rgba(25,40,65,0.85), rgba(10,15,25,0.95))',
+  boxShadow: '0 0 20px 3px rgba(30,215,255,0.6), 0 0 30px 10px rgba(100,100,255,0.3)',
+  border: '1px solid rgba(100,100,255,0.6)',
+  color: '#d0e6f9',
+  borderRadius: '1rem',
+  padding: '2.25rem'
+};
+
+const iconAccentStyle = {
+  boxShadow: '0 0 14px 3px rgba(30,215,255,0.7)',
+  background: 'rgba(50,90,220,0.38)',
+  borderRadius: '0.75rem',
+  width: '4rem',
+  height: '4rem',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  margin: '0 auto 1rem'
+};
+
 export default function Certificates() {
   return (
     <section id="certificates" className="py-20">
@@ -106,9 +127,7 @@ export default function Certificates() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl font-bold gradient-text mb-4">
-            Certificates & Achievements
-          </h2>
+          <h2 className="text-5xl font-bold gradient-text mb-4">Certificates & Achievements</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[hsl(195,100%,45%)] to-[hsl(260,70%,60%)] mx-auto"></div>
           <p className="text-xl text-[hsl(220,10%,55%)] mt-6">
             Professional certifications and recognitions
@@ -118,7 +137,8 @@ export default function Certificates() {
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.id}
-              className="relative bg-[hsl(250,45%,25%)]/25 backdrop-blur-lg shadow-xl rounded-3xl p-9 border border-[hsl(260,70%,60%)]/25 hover:border-[hsl(195,100%,45%)]/80 transition-all group hover:shadow-2xl hover:scale-[1.03] duration-300"
+              style={spaceCardStyle}
+              className="relative shadow-xl group hover:shadow-2xl hover:scale-[1.035] transition-all duration-300"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -126,34 +146,29 @@ export default function Certificates() {
               whileHover={{ y: -10 }}
             >
               <div className="text-center mb-6">
-                {/* Icon in a colored rounded bubble */}
-                <div
-                  className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-xl"
-                  style={{
-                    background: cert.color,
-                    boxShadow: `0 4px 14px 0 ${cert.color}70`,
-                  }}
-                >
-                  <div style={{ color: "#fff" }}>{cert.icon}</div>
+                {/* Glowing Icon */}
+                <div style={{ ...iconAccentStyle, background: cert.color + '55' }}>
+                  <div style={{ color: '#fff' }}>{cert.icon}</div>
                 </div>
-                {/* Headline with matching color and subtle shadow */}
+                {/* Title with accent color */}
                 <h3
-                  className="text-xl font-extrabold mb-1 transition-colors"
+                  className="text-xl font-extrabold mb-1"
                   style={{
                     color: cert.color,
-                    textShadow: `0 2px 12px ${cert.color}44`,
+                    textShadow: `0 2px 12px ${cert.color}44`
                   }}
                 >
                   {cert.title}
                 </h3>
-                <p className="text-[hsl(220,10%,55%)]">{cert.organization}</p>
+                <p className="text-[hsl(220,10%,70%)]">{cert.organization}</p>
               </div>
               <div className="space-y-3 mb-6">
                 {cert.achievements.map((achievement, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    {/* Small achievement icon in correct color */}
-                    <div style={{ color: cert.color }}>{achievement.icon}</div>
-                    <span className="text-[hsl(210,100%,98%)] text-sm">{achievement.text}</span>
+                    <div style={{ color: cert.color }}>
+                      {achievement.icon}
+                    </div>
+                    <span className="text-[hsl(210,100%,96%)] text-sm">{achievement.text}</span>
                   </div>
                 ))}
               </div>
