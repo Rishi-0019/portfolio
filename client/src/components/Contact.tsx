@@ -106,8 +106,6 @@ export default function Contact() {
             <div className="bg-[hsl(250,45%,25%)]/20 backdrop-blur-sm rounded-3xl p-8 border border-[hsl(260,70%,60%)]/30">
               <h3 className="text-2xl font-bold text-[hsl(195,100%,45%)] mb-6">Get In Touch</h3>
               <p className="text-[hsl(220,10%,55%)] leading-relaxed mb-8">
-                I'm always excited to discuss new opportunities, collaborate on innovative projects, 
-                or simply chat about technology and space exploration. Feel free to reach out!
               </p>
 
               <div className="space-y-6">
