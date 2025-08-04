@@ -49,7 +49,7 @@ export default function Portfolio() {
           </div>
 
           <div className="text-[hsl(220,10%,55%)] text-sm">
-            <p>&copy; 2024 Rishabh Tiwari. All rights reserved.</p>
+            <p>&copy; 2025 Rishabh Tiwari. All rights reserved.</p>
             <p className="mt-2">Built with passion for innovation and exploration</p>
           </div>
         </div>
