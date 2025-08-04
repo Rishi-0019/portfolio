@@ -13,7 +13,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Object-oriented programming mastery" },
       { icon: <Star className="w-4 h-4" />, text: "Core Java concepts expertise" },
     ],
-    link: "https://example.com/cert1"
+    link: "https://certificate.codingninjas.com/view/081c25a18d802445"
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "HTML, CSS, JavaScript mastery" },
       { icon: <Globe className="w-4 h-4" />, text: "Responsive design fundamentals" },
     ],
-    link: "https://example.com/cert3"
+    link: "https://certificate.codingninjas.com/view/9c688963d098c075"
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Generative AI concepts" },
       { icon: <Globe className="w-4 h-4" />, text: "Hands-on AI project experience" },
     ],
-    link: "https://example.com/cert4"
+    link: "https://certificate.codingninjas.com/view/71aae39329372009"
   },
   {
     id: 5,
@@ -65,7 +65,7 @@ const certificates = [
       { icon: <Star className="w-4 h-4" />, text: "Data visualization techniques" },
       { icon: <Globe className="w-4 h-4" />, text: "Data-driven decision making" },
     ],
-    link: "https://example.com/cert5"
+    link: "https://certificate.codingninjas.com/view/3caffa0d2eaa46d9"
   },
   {
     id: 6,
@@ -78,7 +78,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Innovative project development" },
       { icon: <Medal className="w-4 h-4" />, text: "Collaborative problem solving" },
     ],
-    link: "https://example.com/cert6"
+    link: "https://drive.google.com/file/d/1cDwnCOX0vUnGIGvpxQsiq5MSH90VvCrf/view?usp=sharing"
   },
   {
     id: 7,
@@ -91,7 +91,7 @@ const certificates = [
       { icon: <Code className="w-4 h-4" />, text: "Collaborative coding and innovation" },
       { icon: <Medal className="w-4 h-4" />, text: "Real-world solution building" },
     ],
-    link: "https://example.com/cert7"
+    link: "https://drive.google.com/file/d/1d6tFYROzvLj2U-gb85Vhji0vV4rNTg5m/view?usp=sharing"
   }
 ];
 
